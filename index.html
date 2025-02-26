@@ -11,23 +11,35 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            position: relative; /* Make body a relative container for absolute positioning */
+            position: relative;
+        }
+        #pdf-container {
+            position: absolute;
+            inset: 0; /* Shorthand for top, right, bottom, left */
+            width: 100%;
+            height: 100%;
         }
         iframe, object {
             width: 100%;
-            height: 100%; /* Full height now that we're using a floating button */
+            height: 100%;
             border: none;
+            overflow: auto;
+        }
+        @media (max-width: 768px) {
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
         }
         .download-link {
             position: fixed;
             bottom: 20px;
-            right: 40px; /* Increased from 20px to move further from the sidebar */
+            right: 40px;
             background-color: #2563eb;
             color: white;
             padding: 12px 20px;
             border-radius: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            font-family: 'Source Sans', sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
             transition: all 0.3s ease;
             z-index: 1000;
         }
@@ -51,9 +63,11 @@
     </style>
 </head>
 <body>
-    <object id="pdf-object" data="https://cv.thuongnguyen.me/cv.pdf" type="application/pdf">
-        <iframe id="google-viewer" src="https://docs.google.com/viewer?url=https://cv.thuongnguyen.me/cv.pdf&embedded=true"></iframe>
-    </object>
+    <div id="pdf-container">
+        <object id="pdf-object" data="https://cv.thuongnguyen.me/cv.pdf" type="application/pdf">
+            <iframe id="fallback-viewer" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fcv.thuongnguyen.me%2Fcv.pdf"></iframe>
+        </object>
+    </div>
     <div class="download-link">
         <a href="https://cv.thuongnguyen.me/cv.pdf" download>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -64,13 +78,28 @@
             Download PDF
         </a>
     </div>
+    
+    <script>
+        // Check if we're on a mobile device
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            const pdfContainer = document.getElementById('pdf-container');
+            const pdfUrl = 'https://cv.thuongnguyen.me/cv.pdf';
+            
+            // Replace with PDF.js viewer for better mobile support
+            pdfContainer.innerHTML = '';
+            const viewerFrame = document.createElement('iframe');
+            viewerFrame.src = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
+            viewerFrame.style.cssText = 'width:100%;height:100%;border:none;overflow:auto;';
+            pdfContainer.appendChild(viewerFrame);
+        }
+    </script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B5QLBRBDG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-7B5QLBRBDG');
     </script>
 </body>
