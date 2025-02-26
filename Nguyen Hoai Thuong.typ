@@ -45,7 +45,7 @@ One of my strengths lies in effective communication, enabling seamless collabora
   [#strong[Senior Software Engineer, ShopBack]],
   [#strong[Mar 2020 to present]]
 )
-  #strong[Skills]: NodeJS, MongoDB, Postgres, Redis, ReactJS, AWS, Kubernetes, Microservices, etc.
+  #strong[Skills]: NodeJS, MongoDB, PostgresSQL, Redis, ReactJS, AWS, Kubernetes, Microservices, etc.
 
   #strong[Earn More system]:
     - Spearheaded the development of a highly complex loyalty system capable of processing millions of transactions daily
@@ -59,7 +59,7 @@ One of my strengths lies in effective communication, enabling seamless collabora
   [#strong[Web Developer, Techbase Vietnam]],
   [#strong[Dec 2017 to Nov 2019]]
 )
-  #strong[Skills]: Javascript, NodeJS, ReactJS, jQuery
+  #strong[Skills]: JavaScript, NodeJS, ReactJS, jQuery
 
   #strong[Yahoo! JAPAN Promotional Ads]:
     - Developed applications for Yahoo! JAPAN's advertisement branch, enabling users to manage advertisements across multiple platforms using React.js and Node.js
@@ -71,7 +71,7 @@ One of my strengths lies in effective communication, enabling seamless collabora
   [#strong[Fullstack Developer, PHP Group International Vietnam]],
   [#strong[Nov 2015 to Nov 2017]]
 )
-  #strong[Skills]: PHP, MySQL, CodeIgniter, Laravel, Yii2, Vuejs, System Admin,...
+  #strong[Skills]: PHP, MySQL, CodeIgniter, Laravel, Yii2, Vue.js, System Admin,...
   
   #strong[PHPReal CRM]:
     - Led the development of a customized CRM for PHP Real, meeting specific requirements for a leading real estate firm
