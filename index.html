@@ -13,31 +13,56 @@
             overflow: hidden;
             position: relative; /* Make body a relative container for absolute positioning */
         }
-        iframe {
+        iframe, object {
             width: 100%;
-            height: calc(100% - 40px); /* Adjust height to accommodate download link */
+            height: 100%; /* Full height now that we're using a floating button */
             border: none;
         }
         .download-link {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #f0f0f0;
-            padding: 10px;
-            text-align: center;
-            font-family: Source Sans, sans-serif;
+            position: fixed;
+            bottom: 20px;
+            right: 40px; /* Increased from 20px to move further from the sidebar */
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Source Sans', sans-serif;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .download-link:hover {
+            background-color: #1d4ed8;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
         }
         .download-link a {
-            color: #333;
+            color: white;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        .download-link a svg {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://docs.google.com/viewer?url=https://cv.thuongnguyen.me/cv.pdf&embedded=true"></iframe>
+    <object id="pdf-object" data="https://cv.thuongnguyen.me/cv.pdf" type="application/pdf">
+        <iframe id="google-viewer" src="https://docs.google.com/viewer?url=https://cv.thuongnguyen.me/cv.pdf&embedded=true"></iframe>
+    </object>
     <div class="download-link">
-        <a href="https://cv.thuongnguyen.me/cv.pdf" download>Download PDF</a>
+        <a href="https://cv.thuongnguyen.me/cv.pdf" download>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+        </a>
     </div>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B5QLBRBDG"></script>
